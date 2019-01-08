@@ -19,6 +19,7 @@ impl<F: PizzaIngredientFactory> PizzaStore<F> {
             PizzaType::Veggie => Pizza::make_veggie,
             PizzaType::Clam => Pizza::make_clam,
             PizzaType::Pepperoni => Pizza::make_pepperoni,
+            PizzaType::Sausage => Pizza::make_sausage,
         };
         let mut pizza = creator(&self.factory);
         pizza.set_name(format!("{} {:?} Pizza", self.style, pizza_type));

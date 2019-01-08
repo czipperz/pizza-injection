@@ -38,3 +38,9 @@ pub enum Sauce {
 pub enum Pepperoni {
     Sliced,
 }
+
+#[derive(Debug)]
+pub enum Sausage {
+    Sliced,
+    Diced,
+}

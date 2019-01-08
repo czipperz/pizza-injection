@@ -6,6 +6,7 @@ pub trait PizzaIngredientFactory {
     fn create_cheese(&self) -> Cheese;
     fn create_veggies(&self) -> Vec<Veggies>;
     fn create_pepperoni(&self) -> Pepperoni;
+    fn create_sausage(&self) -> Sausage;
     fn create_clams(&self) -> Clams;
 }
 
@@ -32,6 +33,9 @@ impl PizzaIngredientFactory for NYPizzaIngredientFactory {
     fn create_pepperoni(&self) -> Pepperoni {
         Pepperoni::Sliced
     }
+    fn create_sausage(&self) -> Sausage {
+        Sausage::Sliced
+    }
     fn create_clams(&self) -> Clams {
         Clams::Fresh
     }
@@ -54,6 +58,9 @@ impl PizzaIngredientFactory for ChicagoPizzaIngredientFactory {
     }
     fn create_pepperoni(&self) -> Pepperoni {
         Pepperoni::Sliced
+    }
+    fn create_sausage(&self) -> Sausage {
+        Sausage::Diced
     }
     fn create_clams(&self) -> Clams {
         Clams::Frozen

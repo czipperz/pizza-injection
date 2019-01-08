@@ -8,6 +8,7 @@ pub enum PizzaType {
     Veggie,
     Clam,
     Pepperoni,
+    Sausage,
 }
 
 pub struct Pizza {
@@ -17,6 +18,7 @@ pub struct Pizza {
     veggies: Vec<Veggies>,
     cheese: Option<Cheese>,
     pepperoni: Option<Pepperoni>,
+    sausage: Option<Sausage>,
     clams: Option<Clams>,
 }
 
@@ -49,6 +51,7 @@ impl Pizza {
             veggies: Vec::new(),
             cheese: Some(cheese),
             pepperoni: None,
+            sausage: None,
             clams: None,
         }
     }
@@ -69,6 +72,7 @@ impl Pizza {
             veggies,
             cheese: Some(cheese),
             pepperoni: None,
+            sausage: None,
             clams: None,
         }
     }
@@ -90,6 +94,7 @@ impl Pizza {
             veggies: Vec::new(),
             cheese: Some(cheese),
             pepperoni: None,
+            sausage: None,
             clams: Some(clams),
         }
     }
@@ -117,6 +122,7 @@ impl Pizza {
             veggies,
             cheese: Some(cheese),
             pepperoni: Some(pepperoni),
+            sausage: None,
             clams: None,
         }
     }
@@ -128,6 +134,35 @@ impl Pizza {
             factory.create_cheese(),
             factory.create_veggies(),
             factory.create_pepperoni(),
+        )
+    }
+
+    pub fn sausage(
+        dough: Dough,
+        sauce: Sauce,
+        cheese: Cheese,
+        veggies: Vec<Veggies>,
+        sausage: Sausage,
+    ) -> Self {
+        Pizza {
+            name: String::new(),
+            dough: Some(dough),
+            sauce: Some(sauce),
+            veggies,
+            cheese: Some(cheese),
+            pepperoni: None,
+            sausage: Some(sausage),
+            clams: None,
+        }
+    }
+
+    pub fn make_sausage(factory: &impl PizzaIngredientFactory) -> Self {
+        Self::sausage(
+            factory.create_dough(),
+            factory.create_sauce(),
+            factory.create_cheese(),
+            factory.create_veggies(),
+            factory.create_sausage(),
         )
     }
 }
@@ -151,6 +186,9 @@ impl fmt::Debug for Pizza {
             } else {
                 write!(f, "\n")?;
             }
+        }
+        if let Some(sausage) = &self.sausage {
+            write!(f, "{:?}\n", sausage)?;
         }
         if let Some(clams) = &self.clams {
             write!(f, "{:?}\n", clams)?;
