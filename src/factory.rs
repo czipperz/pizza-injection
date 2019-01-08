@@ -22,7 +22,12 @@ impl PizzaIngredientFactory for NYPizzaIngredientFactory {
         Cheese::Reggiano
     }
     fn create_veggies(&self) -> Vec<Veggies> {
-        vec![Veggies::Garlic, Veggies::Onion, Veggies::Mushroom, Veggies::RedPepper]
+        vec![
+            Veggies::Garlic,
+            Veggies::Onion,
+            Veggies::Mushroom,
+            Veggies::RedPepper,
+        ]
     }
     fn create_pepperoni(&self) -> Pepperoni {
         Pepperoni::Sliced

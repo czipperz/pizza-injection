@@ -7,11 +7,13 @@ pub struct PizzaStore<F> {
 }
 impl<F: PizzaIngredientFactory> PizzaStore<F> {
     pub fn new(factory: F, style: impl ToString) -> Self {
-        Self { factory, style: style.to_string() }
+        Self {
+            factory,
+            style: style.to_string(),
+        }
     }
 
-    fn create_pizza(&self,
-                    pizza_type: PizzaType) -> Pizza {
+    fn create_pizza(&self, pizza_type: PizzaType) -> Pizza {
         let creator = match pizza_type {
             PizzaType::Cheese => Pizza::make_cheese,
             PizzaType::Veggie => Pizza::make_veggie,
@@ -26,9 +28,9 @@ impl<F: PizzaIngredientFactory> PizzaStore<F> {
     pub fn order_pizza(&self, pizza_type: PizzaType) -> Pizza {
         let mut pizza = self.create_pizza(pizza_type);
         println!("--- Making a {} ---", pizza.name());
-	pizza.bake();
-	pizza.cut();
-	pizza.put_in_box();
+        pizza.bake();
+        pizza.cut();
+        pizza.put_in_box();
         pizza
     }
 }

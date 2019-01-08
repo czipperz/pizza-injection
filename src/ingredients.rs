@@ -1,29 +1,40 @@
 #[derive(Debug)]
 pub enum Veggies {
-    BlackOlives, Eggplant, Garlic, Mushroom, Onion, RedPepper, Spinach
+    BlackOlives,
+    Eggplant,
+    Garlic,
+    Mushroom,
+    Onion,
+    RedPepper,
+    Spinach,
 }
 
 #[derive(Debug)]
 pub enum Cheese {
-    Mozzarella, Parmesan, Reggiano
+    Mozzarella,
+    Parmesan,
+    Reggiano,
 }
 
 #[derive(Debug)]
 pub enum Clams {
-    Fresh, Frozen
+    Fresh,
+    Frozen,
 }
 
 #[derive(Debug)]
 pub enum Dough {
-    ThickCrust, ThinCrust
+    ThickCrust,
+    ThinCrust,
 }
 
 #[derive(Debug)]
 pub enum Sauce {
-    Marinara, PlumTomato
+    Marinara,
+    PlumTomato,
 }
 
 #[derive(Debug)]
 pub enum Pepperoni {
-    Sliced
+    Sliced,
 }
